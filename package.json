@@ -24,13 +24,5 @@
   },
   "engines": {
     "node": "16.15.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/joelmukanya/picknpayAPI.git"
-  },
-  "bugs": {
-    "url": "https://github.com/joelmukanya/picknpayAPI/issues"
-  },
-  "homepage": "https://github.com/joelmukanya/picknpayAPI#readme"
+  }
 }
