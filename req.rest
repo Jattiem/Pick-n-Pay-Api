@@ -10,4 +10,11 @@ Content-Type: application/json
  "quantity": 3,
  "price": 37,
  "dateCreated": "2022/07/29T12:11:00"
+},
+{
+ "prodName": "Milk",
+ "prodUrl": "https://i.postimg.cc/HxyJfp4j/potato-milk-5218684-hero-03-9bd26d6a5fd34025b072f6256e039652.jpg",
+ "quantity": 10,
+ "price": 20,
+ "dateCreated": "2022/06/29T12:12:00"
 }
