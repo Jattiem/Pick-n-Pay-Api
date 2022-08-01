@@ -10,7 +10,7 @@ const app = express();
 // Express router
 const router = express.Router();
 // Configuration 
-const port = parseInt(process.env.Port) || 4000;
+const port = parseInt(process.env.Port) || 3000;
 app.use(router, cors(), express.json(), express.urlencoded({
     extended: true
 }));
@@ -63,17 +63,17 @@ require('crypto').randomBytes(64).toString('hex')
 
 // Create new products
 router.post('/products', bodyParser.json(), (req, res)=> {
-    const bd = req.body; 
-    bd.totalamount = bd.quantity * bd.price;
+    const {prodName, prodUrl, quantity, price,totalamount, dateCreated} = req.body; 
+    totalamount = quantity * price;
     // Query
     const strQry = 
     `
-    INSERT INTO products(prodName, prodUrl, quantity, price, totalamount, dateCreated)
-    VALUES(?, ?, ?, ?, ?, ?);
+    INSERT INTO products(prodName, prodUrl, quantity, price, dateCreated)
+    VALUES(?, ?, ?, ?, ?);
     `;
     //
     db.query(strQry, 
-        [bd.prodName, bd.prodUrl, bd.quantity, bd.price, bd.totalamount, bd.dateCreated],
+        [prodName, prodUrl, quantity, price, totalamount, dateCreated],
         (err, results)=> {
             if(err) throw err;
             res.send(`number of affected row/s: ${results.affectedRows}`);
