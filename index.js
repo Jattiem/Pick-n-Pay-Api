@@ -39,6 +39,11 @@ router.post('/register', bodyParser.json(), async (req, res)=> {
             res.send(`number of affected row/s: ${results.affectedRows}`);
         })
 });
+
+router.get('/register', (req, res) => {
+    res.sendFile('./views/register.html', {root:__dirname});
+});
+
 // Login
 router.post('/login', bodyParser.json(), (req, res)=> {
     const strQry = 
@@ -53,6 +58,11 @@ router.post('/login', bodyParser.json(), (req, res)=> {
             results: results
         })
     })
+
+    router.get('/login', (req, res) => {
+        res.sendFile('./views/login.html', {root:__dirname});
+    });    
+
 /*
 Have to compare: 
 compare(req.body.userpassword, results.userpassword)
@@ -64,7 +74,7 @@ require('crypto').randomBytes(64).toString('hex')
 // Create new products
 router.post('/products', bodyParser.json(), (req, res)=> {
     const {prodName, prodUrl, quantity, price,totalamount, dateCreated} = req.body; 
-    totalamount = quantity * price;
+    totalamount == quantity * price;
     // Query
     const strQry = 
     `
