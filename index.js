@@ -11,9 +11,15 @@ const app = express();
 const router = express.Router();
 // Configuration 
 const port = parseInt(process.env.Port) || 3000;
+// or
+// app.set('port',process.env.Port || 3000);
+
 app.use(router, cors(), express.json(), express.urlencoded({
     extended: true
 }));
+// or
+// app.use(epress.json());
+// app.use(cors());
 
 app.listen(port, ()=> {
     console.log(`Server is running on port ${port}`);
@@ -25,6 +31,7 @@ router.post('/register', bodyParser.json(), async (req, res)=> {
     // Encrypting a password
     // Default genSalt() is 10
     bd.userpassword = await hash(bd.userpassword, 10);
+    
     // Query
     const strQry = 
     `
